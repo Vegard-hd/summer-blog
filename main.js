@@ -1,5 +1,4 @@
 import supabase from "./backend";
-
 console.log("test");
 $("#darkmodeTgl").on("click", function () {
 	$("body").toggleClass("darkmode");
@@ -7,6 +6,8 @@ $("#darkmodeTgl").on("click", function () {
 	$("footer").toggleClass("darkmode");
 	$("header").toggleClass("darkmode");
 	$(this).toggleClass("darkmode");
+	if ($(this).hasClass("darkmode")) $(this).text("Disable dark mode");
+	else $(this).text("Enable dark mode");
 	if ($(this).hasClass("waves")) {
 		$(this).removeClass("waves").addClass("waves-light");
 	} else $(this).removeClass("waves-light").addClass("waves");
