@@ -1,0 +1,31 @@
+main {
+	background-color: #b3e5fc;
+	color: black;
+}
+main.darkmode {
+	background-color: #212121;
+	color: aliceblue;
+}
+header {
+	background-color: #81d4fa;
+}
+header.darkmode {
+	background-color: #424242;
+	color: aliceblue;
+}
+body {
+	background-color: #81d4fa;
+	color: black;
+}
+body.darkmode {
+	background-color: #212121;
+	color: aliceblue;
+}
+footer {
+	background-color: #b3e5fc;
+	color: black;
+}
+footer.darkmode {
+	background-color: #212121;
+	color: aliceblue;
+}
