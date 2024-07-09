@@ -6,6 +6,10 @@ $("#darkmodeTgl").on("click", function () {
 	$("main").toggleClass("darkmode");
 	$("footer").toggleClass("darkmode");
 	$("header").toggleClass("darkmode");
+	$(this).toggleClass("darkmode");
+	if ($(this).hasClass("waves")) {
+		$(this).removeClass("waves").addClass("waves-light");
+	} else $(this).removeClass("waves-light").addClass("waves");
 });
 
 async function database1() {

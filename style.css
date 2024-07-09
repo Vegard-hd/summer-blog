@@ -1,13 +1,15 @@
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
 main {
-	background-color: #b3e5fc;
-	color: black;
+	flex: 1 0 auto;
 }
-main.darkmode {
-	background-color: #212121;
-	color: aliceblue;
-}
+
 header {
-	background-color: #81d4fa;
+	background-color: #b3e5fc;
 }
 header.darkmode {
 	background-color: #424242;
@@ -26,6 +28,15 @@ footer {
 	color: black;
 }
 footer.darkmode {
-	background-color: #212121;
+	background-color: #424242;
 	color: aliceblue;
+}
+
+#darkmodeTgl {
+	background-color: #b3e5fc;
+	color: black;
+}
+#darkmodeTgl.darkmode {
+	background-color: #424242;
+	color: white;
 }
