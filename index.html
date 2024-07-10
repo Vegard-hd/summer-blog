@@ -2,6 +2,11 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
+		<link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			rel="stylesheet"
+		/>
+
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
@@ -35,7 +40,37 @@
 			</nav>
 		</header>
 		<main>
-			<div id="create-content" class="hidden container"></div>
+			<div id="create-content" class="hidden container">
+				<div class="row">
+					<form class="col s12">
+						<div class="row">
+							<div class="input-field col s6">
+								<input id="title_input_text" type="text" data-length="20" />
+								<label for="title_input_text">Title...</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s12">
+								<textarea
+									id="textarea2"
+									class="materialize-textarea"
+									data-length="800"
+								></textarea>
+								<label for="textarea2">Text content...</label>
+								<button
+								id="submitUserInput"
+									class="btn waves-effect waves-light"
+									type="submit"
+									name="action"
+								>
+									Submit
+									<i class="material-icons right">send</i>
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
 			<div id="profile-content" class="hidden container"></div>
 			<div id="defualt-content" class="container">
 				<p class="flow-text">

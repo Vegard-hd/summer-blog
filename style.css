@@ -49,3 +49,26 @@ footer.darkmode {
 .hidden {
 	display: none;
 }
+textarea {
+	color: black;
+}
+textarea.darkmode {
+	color: aliceblue;
+}
+label {
+	color: black;
+}
+#title_input_text {
+	color: black;
+}
+#title_input_text.darkmode {
+	color: aliceblue;
+}
+#submitUserInput {
+	background-color: #b3e5fc;
+	color: black;
+}
+#submitUserInput.darkmode {
+	background-color: #424242;
+	color: aliceblue;
+}

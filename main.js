@@ -6,6 +6,9 @@ $(function () {
 		$("main").toggleClass("darkmode");
 		$("footer").toggleClass("darkmode");
 		$("header").toggleClass("darkmode");
+		$("textarea").toggleClass("darkmode");
+		$("#submitUserInput").toggleClass("darkmode");
+		$("#title_input_text").toggleClass("darkmode");
 		$(this).toggleClass("darkmode");
 		if ($(this).hasClass("darkmode")) $(this).text("Disable dark mode");
 		else $(this).text("Enable dark mode");
@@ -38,6 +41,7 @@ $(function () {
 		$("#profile-content").removeClass("hidden");
 		$("#create-content").addClass("hidden");
 	});
+	$("input#title_input_text, textarea#textarea2").characterCounter();
 });
 
 async function database1() {
