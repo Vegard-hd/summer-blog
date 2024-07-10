@@ -44,10 +44,10 @@ $(function () {
 	$("input#title_input_text, textarea#textarea2").characterCounter();
 });
 
-async function database1() {
+async function database1(title, mainContent) {
 	const { data, error } = await supabase
 		.from("summer_blog")
-		.insert([{ id: "someValue", title: "otherValue" }])
+		.insert([{ id: "title2", title: title, main_content: mainContent }])
 		.select();
 }
 // database1();
