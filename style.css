@@ -40,3 +40,12 @@ footer.darkmode {
 	background-color: #424242;
 	color: white;
 }
+
+#tabs {
+	display: block;
+	background-color: #424242;
+	color: #212121;
+}
+.hidden {
+	display: none;
+}

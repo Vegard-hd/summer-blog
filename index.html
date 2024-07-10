@@ -16,11 +16,28 @@
 	</head>
 	<body class="roboto-regular">
 		<header>
-			<a id="darkmodeTgl" class="waves-effect waves btn">Enable dark mode</a>
-			<h1>Summer blog project</h1>
+			<nav>
+				<div class="nav-wrapper grey darken-1">
+					<a href="#nav-defualt" class="flow-text">Summer blog project</a>
+					<ul id="nav-mobile" class="right">
+						<li id="nav-home" class="active">
+							<a href="#defualt-content">Home</a>
+						</li>
+						<li id="nav-create"><a href="#create-content">Create post</a></li>
+						<li id="nav-profile"><a href="#profile-content">Profile</a></li>
+						<li>
+							<a id="darkmodeTgl" class="waves-effect waves btn"
+								>Enable dark mode</a
+							>
+						</li>
+					</ul>
+				</div>
+			</nav>
 		</header>
 		<main>
-			<div class="container">
+			<div id="create-content" class="hidden container"></div>
+			<div id="profile-content" class="hidden container"></div>
+			<div id="defualt-content" class="container">
 				<p class="flow-text">
 					One common flaw we've seen in many frameworks is a lack of support for
 					truly responsive text. While elements on the page resize fluidly, text
