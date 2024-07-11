@@ -62,6 +62,7 @@ $(function () {
 			}).then((result) => {
 				if (result.isConfirmed === true)
 					console.log("data should be pushed...");
+				database1(titleText, mainText);
 			});
 	});
 	function validMainTextInput(input = "string") {
@@ -77,7 +78,8 @@ $(function () {
 async function database1(title, mainContent) {
 	const { data, error } = await supabase
 		.from("summer_blog")
-		.insert([{ id: "title2", title: title, main_content: mainContent }])
+		.upsert([{ id: "userIdGoesHere", title: title, main_content: mainContent }])
 		.select();
+	console.log(data[0].created_at);
 }
 // database1();
