@@ -1,6 +1,7 @@
 import supabase from "./backend";
 console.log("test");
 $(function () {
+	$("input#title_input_text, textarea#textarea2").characterCounter();
 	$("#darkmodeTgl").on("click", function () {
 		$("body").toggleClass("darkmode");
 		$("main").toggleClass("darkmode");
@@ -9,6 +10,7 @@ $(function () {
 		$("textarea").toggleClass("darkmode");
 		$("#submitUserInput").toggleClass("darkmode");
 		$("#title_input_text").toggleClass("darkmode");
+		$(".input-field label").toggleClass("darkmode");
 		$(this).toggleClass("darkmode");
 		if ($(this).hasClass("darkmode")) $(this).text("Disable dark mode");
 		else $(this).text("Enable dark mode");
@@ -41,7 +43,22 @@ $(function () {
 		$("#profile-content").removeClass("hidden");
 		$("#create-content").addClass("hidden");
 	});
-	$("input#title_input_text, textarea#textarea2").characterCounter();
+	$("#submitUserInput").on("click", function () {
+		// M.updateTextFields();
+		let titleText = $(".input-field input[type=text]").val();
+		let mainText = $("textarea").val();
+		if (validMainTextInput(mainText) === true) console.log("correct mainText");
+		if (validTitleTextInput(titleText) === true)
+			console.log("corrent titleText");
+	});
+	function validMainTextInput(input = "string") {
+		if (input.length > 1 && input.length < 800) return true;
+		return false;
+	}
+	function validTitleTextInput(input = "string") {
+		if (input.length > 1 && input.length <= 20) return true;
+		return false;
+	}
 });
 
 async function database1(title, mainContent) {

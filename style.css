@@ -72,3 +72,19 @@ label {
 	background-color: #424242;
 	color: aliceblue;
 }
+/* label color */
+.input-field label {
+	color: #000;
+}
+.input-field label.darkmode {
+	color: aliceblue;
+}
+#mainTextInput textarea {
+	font-size: 135%;
+}
+#title_input_text {
+	font-size: 160%;
+}
+form {
+	margin-top: 3rem;
+}
