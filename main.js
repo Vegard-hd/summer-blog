@@ -1,5 +1,5 @@
 import supabase from "./backend";
-console.log("test");
+import Swal from "sweetalert2";
 $(function () {
 	$("input#title_input_text, textarea#textarea2").characterCounter();
 	$("#darkmodeTgl").on("click", function () {
@@ -43,13 +43,26 @@ $(function () {
 		$("#profile-content").removeClass("hidden");
 		$("#create-content").addClass("hidden");
 	});
-	$("#submitUserInput").on("click", function () {
+	$("#submitUserInput").on("click", async function () {
 		// M.updateTextFields();
 		let titleText = $(".input-field input[type=text]").val();
 		let mainText = $("textarea").val();
-		if (validMainTextInput(mainText) === true) console.log("correct mainText");
-		if (validTitleTextInput(titleText) === true)
-			console.log("corrent titleText");
+		if (
+			validMainTextInput(mainText) === true &&
+			validTitleTextInput(titleText) === true
+		)
+			return Swal.fire({
+				title: "Are you sure?",
+				text: "This will post your content",
+				icon: "question",
+				showCancelButton: true,
+				confirmButtonColor: "#4caf50",
+				cancelButtonColor: "#f44336",
+				confirmButtonText: "Yes, Post it",
+			}).then((result) => {
+				if (result.isConfirmed === true)
+					console.log("data should be pushed...");
+			});
 	});
 	function validMainTextInput(input = "string") {
 		if (input.length > 1 && input.length < 800) return true;
