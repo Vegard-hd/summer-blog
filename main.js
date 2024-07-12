@@ -1,6 +1,16 @@
 import supabase from "./backend";
 import Swal from "sweetalert2";
 $(function () {
+	async function supaAuth() {
+		const { data, error } = await supabase.auth
+			.signUp({
+				email: "example@email.com",
+				password: "example-password",
+			})
+			.then((dataSuccess) => {
+				console.log(dataSuccess);
+			});
+	}
 	$("input#title_input_text, textarea#textarea2").characterCounter();
 	$("#darkmodeTgl").on("click", function () {
 		$("body").toggleClass("darkmode");
@@ -60,9 +70,10 @@ $(function () {
 				cancelButtonColor: "#f44336",
 				confirmButtonText: "Yes, Post it",
 			}).then((result) => {
-				if (result.isConfirmed === true)
+				if (result.isConfirmed === true) {
 					console.log("data should be pushed...");
-				database1(titleText, mainText);
+					database1(titleText, mainText);
+				}
 			});
 	});
 	function validMainTextInput(input = "string") {
@@ -79,7 +90,9 @@ async function database1(title, mainContent) {
 	const { data, error } = await supabase
 		.from("summer_blog")
 		.upsert([{ id: "userIdGoesHere", title: title, main_content: mainContent }])
-		.select();
-	console.log(data[0].created_at);
+		.select()
+		.then((dataSuccess) => {
+			console.log(dataSuccess, dataSuccess[0].created_at);
+		});
 }
 // database1();

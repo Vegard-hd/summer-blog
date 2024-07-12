@@ -88,3 +88,9 @@ label {
 form {
 	margin-top: 3rem;
 }
+#loginUsername {
+	color: aliceblue;
+}
+#loginPassword {
+	color: black;
+}
