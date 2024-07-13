@@ -11,6 +11,10 @@ $(function () {
 				console.log(dataSuccess);
 			});
 	}
+	$("#loginBtn").on("click", async function(){
+		$()
+		// await supaAuth()
+	})
 	$("input#title_input_text, textarea#textarea2").characterCounter();
 	$("#darkmodeTgl").on("click", function () {
 		$("body").toggleClass("darkmode");

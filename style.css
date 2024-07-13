@@ -94,3 +94,6 @@ form {
 #loginPassword {
 	color: black;
 }
+#createProfileWrap {
+	margin-top: 3rem;
+}
