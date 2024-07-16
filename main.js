@@ -11,10 +11,10 @@ $(function () {
 				console.log(dataSuccess);
 			});
 	}
-	$("#loginBtn").on("click", async function(){
-		$()
+	$("#loginBtn").on("click", async function () {
+		$();
 		// await supaAuth()
-	})
+	});
 	$("input#title_input_text, textarea#textarea2").characterCounter();
 	$("#darkmodeTgl").on("click", function () {
 		$("body").toggleClass("darkmode");
@@ -88,6 +88,7 @@ $(function () {
 		if (input.length > 1 && input.length <= 20) return true;
 		return false;
 	}
+	updateBlogContent();
 });
 
 async function database1(title, mainContent) {
@@ -98,5 +99,19 @@ async function database1(title, mainContent) {
 		.then((dataSuccess) => {
 			console.log(dataSuccess, dataSuccess[0].created_at);
 		});
+}
+
+async function updateBlogContent() {
+	let { data: summer_blog, error } = await supabase
+		.from("summer_blog")
+		.select("id,title,main_content")
+		.eq("id", "userIdGoesHere");
+
+	try {
+		console.log(summer_blog[0]);
+		$("#blogTextWrap").text(summer_blog[0].main_content);
+	} catch (error) {
+		console.log(error);
+	}
 }
 // database1();
