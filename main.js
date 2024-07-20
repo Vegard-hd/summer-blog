@@ -1,19 +1,34 @@
 import supabase from "./backend";
 import Swal from "sweetalert2";
+import loginForm from "./login";
 $(function () {
-	async function supaAuth() {
-		const { data, error } = await supabase.auth
-			.signUp({
-				email: "example@email.com",
-				password: "example-password",
-			})
-			.then((dataSuccess) => {
-				console.log(dataSuccess);
-			});
+	async function signUpNewUser() {
+		let email = $("...");
+		let password = $("...");
+		const { data, error } = await supabase.auth.signUp({
+			email: email,
+			password: password,
+		});
 	}
+	async function loginExistingUser() {
+		let email = $("#userEmail").val();
+		let password = $("#loginPassword").val();
+
+		console.log(email, password);
+		const { data, error } = await supabase.auth.signInWithPassword({
+			email: email,
+			password: password,
+		});
+		console.log(data);
+		console.log(error);
+	}
+	$("#createNewUserBtn").on("click");
 	$("#loginBtn").on("click", async function () {
-		$();
-		// await supaAuth()
+		try {
+			loginExistingUser();
+		} catch (error) {
+			console.log(error);
+		}
 	});
 	$("input#title_input_text, textarea#textarea2").characterCounter();
 	$("#darkmodeTgl").on("click", function () {
