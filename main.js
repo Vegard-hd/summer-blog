@@ -1,27 +1,5 @@
-import supabase from "./backend";
 import Swal from "sweetalert2";
-import loginForm from "./login";
 $(function () {
-	async function signUpNewUser() {
-		let email = $("...");
-		let password = $("...");
-		const { data, error } = await supabase.auth.signUp({
-			email: email,
-			password: password,
-		});
-	}
-	async function loginExistingUser() {
-		let email = $("#userEmail").val();
-		let password = $("#loginPassword").val();
-
-		console.log(email, password);
-		const { data, error } = await supabase.auth.signInWithPassword({
-			email: email,
-			password: password,
-		});
-		console.log(data);
-		console.log(error);
-	}
 	$("#createNewUserBtn").on("click");
 	$("#loginBtn").on("click", async function () {
 		try {
@@ -91,7 +69,6 @@ $(function () {
 			}).then((result) => {
 				if (result.isConfirmed === true) {
 					console.log("data should be pushed...");
-					database1(titleText, mainText);
 				}
 			});
 	});
@@ -106,25 +83,10 @@ $(function () {
 	updateBlogContent();
 });
 
-async function database1(title, mainContent) {
-	const { data, error } = await supabase
-		.from("summer_blog")
-		.upsert([{ id: "userIdGoesHere", title: title, main_content: mainContent }])
-		.select()
-		.then((dataSuccess) => {
-			console.log(dataSuccess, dataSuccess[0].created_at);
-		});
-}
-
 async function updateBlogContent() {
-	let { data: summer_blog, error } = await supabase
-		.from("summer_blog")
-		.select("id,title,main_content")
-		.eq("id", "userIdGoesHere");
-
 	try {
-		console.log(summer_blog[0]);
-		$("#blogTextWrap").text(summer_blog[0].main_content);
+		console.log("attemt to update blog content");
+		// $("#blogTextWrap").text(summer_blog[0].main_content);
 	} catch (error) {
 		console.log(error);
 	}
